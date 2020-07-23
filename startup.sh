@@ -1,13 +1,22 @@
 #!/bin/sh
 
-# python3 -m venv env
+source env/bin/activate
 
-# source env/bin/activate
+python3 manage.py migrate
 
-# pip3 install -r requirements.txt 
+if [ -f "/etc/systemd/system/gunicorn.service" ] 
+then
+    echo "service file exists." 
+else
+    sudo cp gunicorn.service /etc/systemd/system/
+fi
 
-# cp .env.example .env
+sudo systemctl start gunicorn
 
-# python manage.py migrate
+echo "Gunicorn has started."
 
-# python manage.py runserver
+sudo systemctl enable gunicorn
+
+echo "Gunicorn has been enabled."
+
+sudo systemctl status gunicorn
