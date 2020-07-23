@@ -13,6 +13,8 @@ python3 manage.py migrate
 
 sudo cp -rf gunicorn.service /etc/systemd/system/
 
+sudo systemctl reload gunicorn
+
 sudo systemctl start gunicorn
 
 echo "Gunicorn has started."
