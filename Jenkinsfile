@@ -6,5 +6,13 @@ pipeline {
                   sh 'pwd'
               }
          }
+         stage('Setup Env'){
+            steps {
+                sh '''
+                    chmod +x envsetup.sh
+                    ./envsetup.sh
+                    '''
+            }
+        }
     }
 }
