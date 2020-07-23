@@ -3,7 +3,7 @@ pipeline {
     stages {
          stage('Check current directory') {
               steps {
-                  sh 'ls'
+                  sh 'ls $WORKSPACE'
               }
          }
         //  stage('Setup Env'){
