@@ -1,12 +1,7 @@
 pipeline {
     agent any
     stages {
-         stage('Check current directory') {
-              steps {
-                  sh 'ls $WORKSPACE'
-              }
-         }
-         stage('Setup Env'){
+         stage('Setup Python Virtual Environment'){
             steps {
                 sh '''
                     chmod +x envsetup.sh
@@ -17,8 +12,16 @@ pipeline {
         stage('Setup gunicorn service'){
             steps {
                 sh '''
-                    chmod +x startup.sh
-                    ./startup.sh
+                    chmod +x gunicorn.sh
+                    ./gunicorn.sh
+                    '''
+            }
+        }
+        stage('Setup Nginx'){
+            steps {
+                sh '''
+                    chmod +x nginx.sh
+                    ./nginx.sh
                     '''
             }
         }
