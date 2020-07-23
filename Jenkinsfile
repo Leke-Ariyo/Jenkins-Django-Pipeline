@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-         stage('Lint files') {
+         stage('Check current directory') {
               steps {
                   sh 'pwd'
               }
