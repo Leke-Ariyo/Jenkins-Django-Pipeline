@@ -3,7 +3,7 @@ pipeline {
     stages {
          stage('Lint files') {
               steps {
-                  sh 'ls'
+                  sh 'pwd'
               }
          }
     }
