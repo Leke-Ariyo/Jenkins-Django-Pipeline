@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pip3 install virtualenv
+# sudo pip3 install virtualenv
 
 if [ -d "env" ] 
 then
@@ -13,4 +13,9 @@ source env/bin/activate
 
 pip3 install -r requirements.txt 
 
-cp .env.example .env
+if [ -f ".env" ] 
+then
+    echo "env file exists." 
+else
+    cp .env.example .env
+fi
