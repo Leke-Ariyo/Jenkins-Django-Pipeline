@@ -4,12 +4,14 @@ source env/bin/activate
 
 python3 manage.py migrate
 
-if [ -f "/etc/systemd/system/gunicorn.service" ] 
-then
-    echo "service file exists." 
-else
-    sudo cp gunicorn.service /etc/systemd/system/
-fi
+# if [ -f "/etc/systemd/system/gunicorn.service" ] 
+# then
+#     echo "service file exists." 
+# else
+#     sudo cp gunicorn.service /etc/systemd/system/
+# fi
+
+sudo cp -rf gunicorn.service /etc/systemd/system/
 
 sudo systemctl start gunicorn
 
