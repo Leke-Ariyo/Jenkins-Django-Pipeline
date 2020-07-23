@@ -3,16 +3,16 @@ pipeline {
     stages {
          stage('Check current directory') {
               steps {
-                  sh 'pwd'
+                  sh 'ls ~'
               }
          }
-         stage('Setup Env'){
-            steps {
-                sh '''
-                    chmod +x envsetup.sh
-                    ./envsetup.sh
-                    '''
-            }
-        }
+        //  stage('Setup Env'){
+        //     steps {
+        //         sh '''
+        //             chmod +x envsetup.sh
+        //             ./envsetup.sh
+        //             '''
+        //     }
+        // }
     }
 }
